@@ -22,12 +22,23 @@ export interface Stat {
   label: string;
 }
 
-export interface Case {
+export type Case = {
+  id: string;
   title: string;
   description: string;
   icon: string;
   metrics: string[];
-}
+  coverImage: string;
+  features: {
+    title: string;
+    items: string[];
+  }[];
+  techDetails: string[];
+  results: {
+    title: string;
+    description: string;
+  };
+};
 
 export interface Testimonial {
   quote: string;
@@ -98,6 +109,7 @@ export interface Course {
   slides: {
     image: string;
     title: string;
+    description?: string;
   }[];
   outline: {
     title: string;

@@ -5,9 +5,8 @@ import Link from 'next/link';
 import Container from './Container';
 
 interface PageHeroProps {
-  title: string;
+  title: React.ReactNode;
   description: string;
-  variant?: 'solid' | 'outline';
   cta?: {
     label: string;
     href: string;
@@ -21,46 +20,75 @@ interface PageHeroProps {
 export default function PageHero({
   title,
   description,
-  variant = 'solid',
   cta,
   secondaryCta,
 }: PageHeroProps) {
   return (
-    <section className="relative py-20 sm:py-24">
-      <Container className="relative">
-        <div className="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
-          <h1 className="font-display text-5xl font-bold tracking-tighter text-blue-600 sm:text-7xl">
-            {title}
-          </h1>
-          <div className="mt-6 space-y-6 text-lg text-gray-600 dark:text-gray-400">
-            <p>{description}</p>
-          </div>
-          {(cta || secondaryCta) && (
-            <div className="mt-8 flex gap-4">
-              {cta && (
-                <Link
-                  href={cta.href}
-                  className={
-                    variant === 'solid'
-                      ? 'inline-flex items-center justify-center rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-500'
-                      : 'inline-flex items-center justify-center rounded-full border border-blue-600 px-4 py-2 text-sm font-semibold text-blue-600 transition-colors hover:bg-blue-50'
-                  }
-                >
+    <div className="container relative z-10 mx-auto flex min-h-[600px] flex-col items-center justify-center px-4 py-32 text-center sm:px-6 lg:px-8">
+      <div className="max-w-4xl">
+        <h1 className="relative mb-6 text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl md:text-7xl">
+          <span className="relative inline-block">
+            <span className="relative z-10">{title}</span>
+            <div className="absolute -inset-1 -z-10 animate-pulse-slow rounded-full bg-gradient-to-r from-blue-600/20 via-blue-400/20 to-blue-600/20 blur-2xl" />
+          </span>
+        </h1>
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-300 sm:text-xl">
+          {description}
+        </p>
+        {(cta || secondaryCta) && (
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
+            {cta && (
+              <a
+                href={cta.href}
+                className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-3 text-lg font-semibold text-white transition-transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+              >
+                <span className="relative z-10 flex items-center gap-2">
                   {cta.label}
-                </Link>
-              )}
-              {secondaryCta && (
-                <Link
-                  href={secondaryCta.href}
-                  className="inline-flex items-center justify-center rounded-full bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-                >
+                  <svg
+                    className="h-5 w-5 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </span>
+                <div className="absolute inset-0 z-0 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 opacity-0 transition-opacity group-hover:opacity-100" />
+              </a>
+            )}
+            {secondaryCta && (
+              <a
+                href={secondaryCta.href}
+                className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-white/10 px-8 py-3 text-lg font-semibold text-gray-900 backdrop-blur-sm transition-transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 dark:bg-white/5 dark:text-white dark:focus:ring-offset-gray-900"
+              >
+                <span className="relative z-10 flex items-center gap-2">
                   {secondaryCta.label}
-                </Link>
-              )}
-            </div>
-          )}
-        </div>
-      </Container>
-    </section>
+                  <svg
+                    className="h-5 w-5 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
+                </span>
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

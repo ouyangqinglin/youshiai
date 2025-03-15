@@ -23,10 +23,12 @@ export const courses: Course[] = [
       {
         image: 'https://images.unsplash.com/photo-1552581234-26160f608093?w=800&auto=format&fit=crop&q=60',
         title: 'AI商业思维',
+        description: '掌握AI商业应用的核心思维方法，建立系统化的AI商业认知'
       },
       {
         image: 'https://images.unsplash.com/photo-1552581234-26160f608093?w=800&auto=format&fit=crop&q=60',
         title: 'AI场景应用',
+        description: '深入了解AI在不同商业场景中的实际应用案例'
       }
     ],
     outline: [

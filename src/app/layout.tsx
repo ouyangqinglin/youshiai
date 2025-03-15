@@ -3,7 +3,6 @@ import './globals.css';
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
-import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 import AppFooter from '@/components/AppFooter';
 import AppNavbar from '@/components/AppNavbar';
@@ -30,19 +29,19 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN" className={`${inter.variable} h-full`} suppressHydrationWarning>
-      <body className="flex min-h-full flex-col bg-white font-sans text-gray-900 antialiased dark:bg-gray-900 dark:text-white">
+      <body className="flex min-h-full flex-col antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
+          storageKey="theme-preference"
         >
-          <div className="fixed right-4 top-4 z-50">
-            <ThemeToggle />
+          <div className="min-h-full bg-background text-foreground transition-colors duration-300">
+            <AppNavbar />
+            <div className="flex-1">{children}</div>
+            <AppFooter />
           </div>
-          <AppNavbar />
-          <div className="flex-1">{children}</div>
-          <AppFooter />
         </ThemeProvider>
       </body>
     </html>

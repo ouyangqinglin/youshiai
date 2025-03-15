@@ -24,12 +24,12 @@ export default function AppFooter() {
   };
 
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950">
+    <footer className="bg-card">
       <Container>
         <div className="py-8">
           <div className="flex flex-col space-y-6 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div className="flex items-center space-x-2">
-              <span className="text-xl font-bold text-blue-500">有识AI</span>
+              <span className="text-xl font-bold text-primary">有识AI</span>
             </div>
             
             {/* Desktop Navigation */}
@@ -39,7 +39,7 @@ export default function AppFooter() {
                   key={item.name}
                   href={item.href}
                   className={`text-sm transition-colors ${
-                    isActive(item.href) ? 'text-blue-400' : 'text-gray-400 hover:text-white'
+                    isActive(item.href) ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
                   {item.name}
@@ -55,8 +55,8 @@ export default function AppFooter() {
                   href={item.href}
                   className={`flex flex-col items-center justify-center rounded-lg p-2 text-center text-xs transition-colors ${
                     isActive(item.href)
-                      ? 'bg-blue-900/50 text-blue-400'
-                      : 'text-gray-400 hover:bg-gray-800 hover:text-white'
+                      ? 'bg-primary/10 text-primary'
+                      : 'text-muted-foreground hover:bg-accent hover:text-foreground'
                   }`}
                 >
                   {item.name}
@@ -65,8 +65,8 @@ export default function AppFooter() {
             </div>
           </div>
 
-          <div className="mt-8 border-t border-gray-800 pt-8">
-            <p className="text-center text-sm text-gray-400">
+          <div className="mt-8 border-t border-border pt-8">
+            <p className="text-center text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} 有识AI. 保留所有权利.
             </p>
           </div>

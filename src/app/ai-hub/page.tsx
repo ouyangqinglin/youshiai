@@ -4,21 +4,23 @@ import { useState } from 'react';
 
 import PageLayout from '@/components/layout/PageLayout';
 import Icon from '@/components/ui/Icon';
+import Card from '@/components/ui/Card';
 import { aiModels, features } from '@/data/ai-hub';
 
 export default function AIHubPage() {
   const [selectedModel, setSelectedModel] = useState<string | null>(null);
 
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col bg-background">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background py-20 sm:py-24">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 via-background to-background py-20 sm:py-24 dark:from-primary/10 dark:via-background dark:to-background">
+        <div className="absolute -top-20 left-1/2 size-[600px] -translate-x-1/2 rounded-full bg-primary/5 blur-[100px] dark:bg-primary/10" />
         <PageLayout containerClassName="py-0">
           <div className="mx-auto max-w-2xl lg:max-w-4xl lg:px-12">
-            <h1 className="section-title text-5xl sm:text-7xl">
+            <h1 className="section-title text-5xl sm:text-7xl bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
               AI Hub
             </h1>
-            <p className="section-description">
+            <p className="section-description text-muted-foreground dark:text-gray-400">
               探索我们的AI模型中心，体验最先进的大语言模型。我们提供多个主流模型，满足您的不同需求。
             </p>
           </div>
@@ -28,51 +30,50 @@ export default function AIHubPage() {
       {/* Features Section */}
       <PageLayout>
         <div className="mx-auto max-w-7xl">
-          <h2 className="section-title text-4xl sm:text-5xl">
+          <h2 className="section-title text-4xl sm:text-5xl bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
             核心特性
           </h2>
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
-              <div
+              <Card
                 key={index}
-                className="card group hover:border-primary/50"
-              >
-                <div className="flex size-10 items-center justify-center rounded-full bg-primary/10 transition-colors group-hover:bg-primary/20">
-                  <Icon name={feature.icon} className="size-6 text-primary" />
-                </div>
-                <h3 className="mt-4 text-xl font-bold text-gray-900 dark:text-white">
-                  {feature.title}
-                </h3>
-                <p className="mt-2 text-gray-600 dark:text-gray-400">{feature.description}</p>
-              </div>
+                className="group transition-all hover:border-primary/20 hover:shadow-lg"
+                icon={
+                  <div className="flex size-10 items-center justify-center rounded-full bg-white/80 transition-colors group-hover:bg-primary/[0.02] dark:bg-gray-900 dark:group-hover:bg-primary/10">
+                    <Icon name={feature.icon} className="size-6 text-primary dark:text-primary/80" />
+                  </div>
+                }
+                title={feature.title}
+                description={feature.description}
+              />
             ))}
           </div>
         </div>
       </PageLayout>
 
       {/* Models Section */}
-      <PageLayout className="bg-gray-50/50 dark:bg-gray-900/50">
+      <PageLayout className="bg-primary/[0.02] dark:bg-black/20">
         <div className="mx-auto max-w-7xl">
-          <h2 className="section-title text-4xl sm:text-5xl">
+          <h2 className="section-title text-4xl sm:text-5xl bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
             可用模型
           </h2>
           <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
             {aiModels.map((model) => (
-              <div
+              <Card
                 key={model.id}
-                className={`card group transition-all ${
+                className={`group transition-all ${
                   selectedModel === model.id
-                    ? 'border-primary bg-primary/5'
-                    : 'hover:border-primary/50'
+                    ? 'border-primary shadow-lg dark:border-primary/40'
+                    : 'hover:border-primary/20 hover:shadow-lg'
                 }`}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <div className="flex size-10 items-center justify-center rounded-full bg-primary/10 transition-colors group-hover:bg-primary/20">
-                      <Icon name={model.icon} className="size-6 text-primary" />
+                    <div className="flex size-10 items-center justify-center rounded-full bg-white/80 transition-colors group-hover:bg-primary/[0.02] dark:bg-gray-900 dark:group-hover:bg-primary/10">
+                      <Icon name={model.icon} className="size-6 text-primary dark:text-primary/80" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                      <h3 className="text-xl font-bold text-foreground">
                         {model.name}
                       </h3>
                       <p className="text-sm text-gray-600 dark:text-gray-400">{model.provider}</p>
@@ -80,52 +81,21 @@ export default function AIHubPage() {
                   </div>
                   <button
                     onClick={() => setSelectedModel(model.id)}
-                    className={`btn-secondary ${
+                    className={`inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 dark:focus:ring-offset-black ${
                       selectedModel === model.id
-                        ? 'bg-primary text-primary-foreground hover:bg-primary/90'
-                        : ''
+                        ? 'bg-primary text-white hover:bg-primary/90 dark:bg-primary/80 dark:hover:bg-primary/70'
+                        : 'bg-white text-primary hover:bg-primary/[0.05] dark:bg-black/60 dark:text-primary/80 dark:hover:bg-primary/20'
                     }`}
                   >
                     {selectedModel === model.id ? '已选择' : '选择'}
                   </button>
                 </div>
                 <p className="mt-4 text-gray-600 dark:text-gray-400">{model.description}</p>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
       </PageLayout>
-
-      {/* CTA Section */}
-      {/* <section className="bg-gradient-to-b from-primary to-primary/90 dark:from-primary/90 dark:to-primary">
-        <PageLayout containerClassName="py-24" showBackground={false}>
-          <div className="relative overflow-hidden rounded-2xl bg-white/5 p-16">
-            <div className="absolute left-1/2 size-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/5 blur-[100px]" />
-            <div className="relative mx-auto max-w-2xl text-center">
-              <h2 className="section-title text-white">
-                开始使用 AI Hub
-              </h2>
-              <p className="section-description text-white/80">
-                选择您需要的模型，开始构建AI驱动的应用。
-              </p>
-              <div className="mt-8 flex justify-center gap-4">
-                <a
-                  href="/register"
-                  className="btn-primary bg-white text-primary hover:bg-white/90"
-                >
-                  免费注册
-                </a>
-                <a
-                  href="/docs"
-                  className="btn-secondary bg-white/10 text-white hover:bg-white/20"
-                >
-                  查看文档
-                </a>
-              </div>
-            </div>
-          </div>
-        </PageLayout>
-      </section> */}
     </main>
   );
 }

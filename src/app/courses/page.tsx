@@ -2,119 +2,153 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import PageLayout from '@/components/layout/PageLayout';
 import Icon from '@/components/ui/Icon';
 import { courses } from '@/data/courses';
 
-const levelLabels = {
-  beginner: '入门',
-  intermediate: '中级',
-  advanced: '高级',
-};
-
 export default function CoursesPage() {
   return (
-    <PageLayout>
-      <div className="flex flex-col gap-8">
-        {/* Hero Section */}
-        <section className="text-center py-12">
-          <h1 className="section-title text-4xl font-bold mb-4">AI课程中心</h1>
-          <p className="section-description text-xl max-w-2xl mx-auto">
-            从入门到精通，系统学习AI技术，提升职业竞争力
-          </p>
-        </section>
-
-        {/* Courses Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {courses.map((course) => (
-            <Link 
-              key={course.id} 
-              href={`/courses/${course.id}`}
-              className="card group overflow-hidden hover:shadow-lg transition-shadow duration-300"
+    <main className="flex min-h-screen flex-col bg-background">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 via-primary/5 to-background py-20 sm:py-24 dark:from-primary/20 dark:via-primary/10 dark:to-background">
+        <div className="absolute -top-20 left-1/2 size-[600px] -translate-x-1/2 rounded-full bg-primary/5 blur-[100px]" />
+        <PageLayout>
+          <div className="relative mx-auto max-w-2xl text-center">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl font-bold bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent sm:text-5xl lg:text-6xl"
             >
-              {/* Course Image */}
-              <div className="relative h-48 w-full">
-                <Image
-                  src={course.image || '/images/courses/placeholder.jpg'}
-                  alt={course.title}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-xl font-semibold text-white">{course.title}</h3>
-                  <p className="text-sm text-gray-200 mt-1">{course.description}</p>
-                </div>
-              </div>
+              AI课程中心
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-6 text-lg text-muted-foreground sm:text-xl"
+            >
+              从入门到精通，系统学习AI技术，提升职业竞争力
+            </motion.p>
+          </div>
+        </PageLayout>
+      </section>
 
-              {/* Course Content */}
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-gray-600 dark:text-gray-400">
-                      {course.duration}
-                    </span>
-                    <span className="text-sm text-gray-600 dark:text-gray-400">•</span>
-                    <span className="text-sm text-gray-600 dark:text-gray-400">
-                      {course.lessons}课时
-                    </span>
+      {/* Courses Section */}
+      <section className="py-16 lg:py-24">
+        <PageLayout>
+          <div className="space-y-8">
+            {courses.map((course, index) => (
+              <motion.div 
+                key={course.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  ease: [0.23, 1, 0.32, 1]
+                }}
+                className="group relative overflow-hidden rounded-3xl bg-card shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 hover:shadow-primary/10 dark:hover:shadow-primary/20"
+              >
+                <div className="flex flex-col md:flex-row">
+                  {/* Left: Image */}
+                  <div className="relative w-full md:w-[400px] aspect-[16/9] md:aspect-auto overflow-hidden">
+                    <Image
+                      src={course.image || '/images/courses/placeholder.jpg'}
+                      alt={course.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                      <motion.span 
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="px-4 py-1.5 text-sm font-medium text-white bg-primary/90 backdrop-blur-md rounded-full shadow-lg"
+                      >
+                        ¥{course.price.replace('¥', '')}
+                      </motion.span>
+                      <motion.span 
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="px-4 py-1.5 text-sm font-medium text-white bg-black/50 backdrop-blur-md rounded-full shadow-lg"
+                      >
+                        {course.level === 'beginner' ? '商业人士' : '开发者'}
+                      </motion.span>
+                    </div>
                   </div>
-                  <span className="text-lg font-semibold text-primary">
-                    {course.price}
-                  </span>
-                </div>
 
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary">
-                    {course.level}
-                  </span>
-                  <span className="text-sm text-gray-600 dark:text-gray-400">
-                    {course.students}人学习
-                  </span>
-                </div>
+                  {/* Right: Content */}
+                  <div className="flex-1 p-6 md:p-8 flex flex-col bg-card">
+                    {/* Top Tag */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="px-4 py-1.5 text-sm font-medium text-primary bg-primary/10 rounded-full ring-1 ring-primary/20">
+                        热门推荐
+                      </span>
+                      <span className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <Icon name="clock" className="size-4" />
+                        {course.duration}
+                      </span>
+                    </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {course.features.slice(0, 3).map((feature, index) => (
-                    <span
-                      key={index}
-                      className="px-2 py-1 text-xs rounded bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+                    {/* Title & Description */}
+                    <h2 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                      {course.title}
+                    </h2>
+                    <p className="mt-3 text-muted-foreground line-clamp-2">
+                      {course.description}
+                    </p>
+
+                    {/* Course Stats */}
+                    <div className="mt-8 grid grid-cols-3 gap-6">
+                      <div className="flex items-start gap-3 group/stat">
+                        <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 dark:bg-primary/20 group-hover/stat:bg-primary/20 dark:group-hover/stat:bg-primary/30 transition-colors duration-300">
+                          <Icon name="book" className="size-6 text-primary" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-foreground">课程模块</div>
+                          <div className="text-sm text-muted-foreground">{course.outline.length}个专题</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 group/stat">
+                        <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 dark:bg-primary/20 group-hover/stat:bg-primary/20 dark:group-hover/stat:bg-primary/30 transition-colors duration-300">
+                          <Icon name="users" className="size-6 text-primary" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-foreground">目标学员</div>
+                          <div className="text-sm text-muted-foreground">4类人群</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 group/stat">
+                        <div className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 dark:bg-primary/20 group-hover/stat:bg-primary/20 dark:group-hover/stat:bg-primary/30 transition-colors duration-300">
+                          <Icon name="graduation-cap" className="size-6 text-primary" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-foreground">学习成果</div>
+                          <div className="text-sm text-muted-foreground">{course.features.length}项技能</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* CTA Button */}
+                    <Link
+                      href={`/courses/${course.id}`}
+                      className="mt-8 self-end inline-flex items-center gap-2 px-7 py-3 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-full shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
                     >
-                      {feature}
-                    </span>
-                  ))}
+                      查看详情
+                      <Icon name="arrow-right" className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </section>
-
-        {/* CTA Section */}
-        {/* <section className="text-center py-12 bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl">
-          <h2 className="section-title text-3xl font-bold mb-4">开启你的AI学习之旅</h2>
-          <p className="section-description text-lg mb-6 max-w-2xl mx-auto">
-            选择适合你的课程，跟随行业专家学习AI技术，提升职业竞争力
-          </p>
-          <Link
-            href="/contact"
-            className="btn-primary inline-flex items-center gap-2"
-          >
-            咨询课程
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </Link>
-        </section> */}
-      </div>
-    </PageLayout>
+              </motion.div>
+            ))}
+          </div>
+        </PageLayout>
+      </section>
+    </main>
   );
 }

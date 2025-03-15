@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { ThemeToggle } from './theme/ThemeToggle';
 
 import Container from './ui/Container';
 
@@ -27,11 +28,11 @@ export default function AppNavbar() {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/80">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
       <Container>
         <nav className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-xl font-bold text-gray-900 dark:text-white">
-            <span className="text-blue-600">有识 AI</span>
+          <Link href="/" className="flex items-center gap-2 text-xl font-bold text-foreground">
+            <span className="text-primary">有识 AI</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -42,31 +43,39 @@ export default function AppNavbar() {
                 href={item.href}
                 className={`relative py-2 text-sm font-medium transition-colors ${
                   isActive(item.href)
-                    ? 'text-blue-600 dark:text-blue-400'
-                    : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white'
+                    ? 'text-primary'
+                    : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {item.name}
                 {isActive(item.href) && (
-                  <span className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-blue-600 dark:bg-blue-400" />
+                  <span className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-primary" />
                 )}
               </Link>
             ))}
+            <div className="flex items-center">
+              <ThemeToggle />
+            </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            type="button"
-            className="md:hidden rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <span className="sr-only">打开菜单</span>
-            {isMenuOpen ? (
-              <X className="h-6 w-6" aria-hidden="true" />
-            ) : (
-              <Menu className="h-6 w-6" aria-hidden="true" />
-            )}
-          </button>
+          <div className="flex items-center gap-4 md:hidden">
+            <div className="flex items-center">
+              <ThemeToggle />
+            </div>
+            {/* Mobile Menu Button */}
+            <button
+              type="button"
+              className="rounded-md p-2 text-muted-foreground hover:bg-accent hover:text-foreground"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <span className="sr-only">打开菜单</span>
+              {isMenuOpen ? (
+                <X className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
         </nav>
 
         {/* Mobile Navigation */}
@@ -79,8 +88,8 @@ export default function AppNavbar() {
                   href={item.href}
                   className={`block rounded-md px-3 py-2 text-base font-medium ${
                     isActive(item.href)
-                      ? 'bg-blue-50 text-blue-600 dark:bg-blue-900/50 dark:text-blue-400'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white'
+                      ? 'bg-primary/10 text-primary'
+                      : 'text-muted-foreground hover:bg-accent hover:text-foreground'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
