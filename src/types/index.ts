@@ -17,11 +17,6 @@ export interface Advantage {
   icon: string;
 }
 
-export interface Stat {
-  value: string;
-  label: string;
-}
-
 export interface Case {
   id: string;
   title: string;
