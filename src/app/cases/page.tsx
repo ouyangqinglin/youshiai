@@ -12,32 +12,43 @@ const cases = [
     title: '金大智能AI医美平台',
     subtitle: '医美科技',
     description: '成立于2016年，拥有超过50000㎡厂房和600余名员工，具备98台注塑机，是国家级高新技术企业。已通过ISO9001、ISO14001、ISO13485和IATF16949认证。公司年产模具1200套，设置10条成品件生产线，70%业务...',
-    image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=1600&auto=format&fit=crop&q=80',
+    image: '/images/cases/case-jinda.avif',
     features: [
       '医美领域的私有化部署方案',
       '面向医美机构开发的智能皮肤的多agent系统'
     ]
   },
   {
-    id: 'education-ai',
-    title: '智慧教育解决方案',
-    subtitle: '教育科技',
-    description: '为全国超过1000所学校提供智能教育解决方案，覆盖K12及高等教育领域。采用先进的AI技术，实现个性化学习和智能教学管理，显著提升教学效果。',
-    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1600&auto=format&fit=crop&q=80',
+    id: 'energy-ai',
+    title: '百酷新能源AI充电宝',
+    subtitle: '能源科技',
+    description: '成立于2015年，专注于新能源领域的研发、生产与销售，致力于提供高效、绿色的能源解决方案。公司主要产品涵盖太阳能光伏发电、储能系统及电池技术，广泛应用于住宅、商业及工业领域。百酷新能源凭借先进的技术研发实力和完善的生产设施，已获得多个国内外认证和专利，产品远销欧美及亚洲市场。',
+    image: '/images/cases/case-energy.avif',
     features: [
-      '智能备课系统',
-      '个性化学习平台'
+      '智能行程规划',
+      '基于用户指令生成行程',
     ]
   },
   {
-    id: 'finance-ai',
-    title: '金融科技解决方案',
-    subtitle: '金融科技',
-    description: '服务超过200家金融机构，提供智能风控、智能营销、智能客服等全方位解决方案。通过AI技术提升金融服务效率和安全性。',
-    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&auto=format&fit=crop&q=80',
+    id: 'clothes-ai',
+    title: 'AI智能试衣体验',
+    subtitle: '智能科技',
+    description: 'AI虚拟试衣体验是一款AI驱动的在线试衣平台，用户只需上传个人照片，即可根据选择的衣服查看实时穿搭效果。平台利用可灵AI技术，实现精准的服饰与用户图像匹配，展示真实的穿衣效果。除了图片展示，用户还可生成与之配套的视频，直观感受服饰搭配的动态效果。',
+    image: '/images/cases/case-clothes.avif',
     features: [
-      '智能风控系统',
-      'AI营销决策平台'
+      '无需实体试衣，即可体验完美穿搭',
+      '动态生成高清图片和视频，体验前所未有的试衣体验'
+    ]
+  },
+  {
+    id: 'education-ai',
+    title: 'AI宝宝英语单词学习神器',
+    subtitle: '教育科技',
+    description: '宝宝启蒙英语单词学习神器基于Coze平台配置，旨在为孩子们提供个性化的英语学习体验。它能够标记单词学习程度，为每个单词提供详细的中文释义、例句、视频示范和标准发音，并根据孩子的学习情况自动调整学习内容。',
+    image: '/images/cases/case-education.avif',
+    features: [
+      '实时标记单词学习程度',
+      '根据孩子学习情况自动调整学习内容'
     ]
   }
 ];
@@ -84,10 +95,10 @@ export default function CasesPage() {
                   delay: index * 0.2,
                   ease: [0.23, 1, 0.32, 1]
                 }}
-                className="group"
+                className={`group ${index % 2 === 1 ? 'md:mt-20' : ''}`}
               >
-                <div className="relative h-full overflow-hidden rounded-2xl bg-card shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:shadow-primary/10 dark:hover:shadow-primary/20">
-                  <div className="relative aspect-[16/9]">
+                <div className="relative h-[520px] overflow-hidden rounded-2xl bg-card shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:shadow-primary/10 dark:hover:shadow-primary/20">
+                  <div className="relative h-[240px]">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -107,21 +118,23 @@ export default function CasesPage() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex h-full flex-col p-6">
-                    <p className="text-sm text-muted-foreground line-clamp-2">
-                      {item.description}
-                    </p>
-                    <div className="mt-4 space-y-2">
-                      {item.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-center gap-2">
-                          <div className="h-1.5 w-1.5 rounded-full bg-primary" />
-                          <span className="text-sm text-muted-foreground">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
+                  <div className="flex flex-col justify-between h-[280px] p-6">
+                    <div>
+                      <p className="text-sm text-muted-foreground line-clamp-3">
+                        {item.description}
+                      </p>
+                      <div className="mt-4 space-y-2">
+                        {item.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-center gap-2">
+                            <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                            <span className="text-sm text-muted-foreground">
+                              {feature}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="mt-6 flex items-center">
+                    <div className="flex items-center">
                       <Link
                         href={`/cases/${item.id}`}
                         className="inline-flex items-center gap-2 rounded-full px-6 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30"

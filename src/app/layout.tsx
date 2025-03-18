@@ -20,8 +20,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'AI Hub - Your Gateway to AI Innovation',
-  description: 'Explore AI solutions, courses, and case studies at AI Hub.',
+  title: '深圳市有识之士科技有限公司',
+  description: 'AI解决方案提供商，专注于AI技术在教育、金融、制造等行业的应用',
   keywords: ['AI教育', '智能教育', '教育科技', '人工智能', '在线教育'],
   authors: [{ name: '有识AI' }],
 };

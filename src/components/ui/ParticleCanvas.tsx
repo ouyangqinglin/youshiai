@@ -46,13 +46,21 @@ export default function ParticleCanvas() {
       
       for (let i = 0; i < numberOfParticles; i++) {
         particles.push({
+          // 粒子的水平位置，随机分布在画布宽度范围内
           x: Math.random() * canvas.width,
+          // 粒子的垂直位置，随机分布在画布高度范围内
           y: Math.random() * canvas.height,
-          radius: Math.random() * 2 + 0.5,
+          // 粒子半径，在0.5到2.5之间随机
+          radius: Math.random() * 2 + 1,
+          // 水平速度，在-0.15到0.15之间随机
           vx: (Math.random() - 0.5) * 0.3,
+          // 垂直速度，在-0.15到0.15之间随机
           vy: (Math.random() - 0.5) * 0.3,
-          baseColor: theme === 'dark' ? '255, 255, 255' : '0, 0, 0',
+          // 根据主题设置基础颜色，暗色主题为白色，亮色主题为蓝色
+          baseColor: theme === 'dark' ? '251, 239, 178' : '251, 239, 178',
+          // 初始透明度，在0.2到0.7之间随机
           alpha: Math.random() * 0.5 + 0.2,
+          // 目标透明度，用于透明度动画过渡
           targetAlpha: Math.random() * 0.5 + 0.2
         });
       }
@@ -168,9 +176,9 @@ export default function ParticleCanvas() {
         src="/images/tech-bg-2.jpg"
         alt="Technology Background"
         fill
-        className="object-cover opacity-[0.5] dark:opacity-[0.4]"
+        className="object-cover opacity-[0.9] dark:opacity-[0.4]"
         priority
-        quality={90}
+        quality={90} // quality属性控制图片的质量,范围1-100,值越大质量越好但文件也越大,75是一个比较好的平衡点
       />
       <canvas
         ref={canvasRef}

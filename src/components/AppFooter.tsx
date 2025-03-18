@@ -67,7 +67,7 @@ export default function AppFooter() {
 
           <div className="mt-8 border-t border-border pt-8">
             <p className="text-center text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} 有识AI. 保留所有权利.
+              &copy; {new Date().getFullYear()} 深圳市有识科技有限公司. 保留所有权利.
             </p>
           </div>
         </div>

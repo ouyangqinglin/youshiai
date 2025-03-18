@@ -6,14 +6,16 @@ import Container from './Container';
 
 interface PageHeroProps {
   title: React.ReactNode;
-  description: string;
+  description: React.ReactNode;
   cta?: {
     label: string;
     href: string;
+    className?: string;
   };
   secondaryCta?: {
     label: string;
     href: string;
+    className?: string;
   };
 }
 
@@ -32,15 +34,15 @@ export default function PageHero({
             <div className="absolute -inset-1 -z-10 animate-pulse-slow rounded-full bg-gradient-to-r from-blue-600/20 via-blue-400/20 to-blue-600/20 blur-2xl" />
           </span>
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-300 sm:text-xl">
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-100 dark:text-gray-300 sm:text-xl">
           {description}
         </p>
         {(cta || secondaryCta) && (
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
             {cta && (
-              <a
+              <Link
                 href={cta.href}
-                className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-3 text-lg font-semibold text-white transition-transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+                className={`group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-3 text-lg font-semibold text-white transition-transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-gray-900 ${cta.className || ''}`}
               >
                 <span className="relative z-10 flex items-center gap-2">
                   {cta.label}
@@ -60,12 +62,12 @@ export default function PageHero({
                   </svg>
                 </span>
                 <div className="absolute inset-0 z-0 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 opacity-0 transition-opacity group-hover:opacity-100" />
-              </a>
+              </Link>
             )}
             {secondaryCta && (
-              <a
+              <Link
                 href={secondaryCta.href}
-                className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-white/10 px-8 py-3 text-lg font-semibold text-gray-900 backdrop-blur-sm transition-transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 dark:bg-white/5 dark:text-white dark:focus:ring-offset-gray-900"
+                className={`group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-white/10 px-8 py-3 text-lg font-semibold text-gray-900 backdrop-blur-sm transition-transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 dark:bg-white/5 dark:text-white dark:focus:ring-offset-gray-900 ${secondaryCta.className || ''}`}
               >
                 <span className="relative z-10 flex items-center gap-2">
                   {secondaryCta.label}
@@ -84,7 +86,7 @@ export default function PageHero({
                     />
                   </svg>
                 </span>
-              </a>
+              </Link>
             )}
           </div>
         )}

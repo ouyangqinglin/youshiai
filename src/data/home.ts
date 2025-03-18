@@ -33,7 +33,7 @@ export const team: TeamMember[] = [
   {
     name: '强锋',
     title: '首席科学家&CTO',
-    description: '清华大学与香港中文大学FMBA',
+    description: '爱丁堡大学优化与数学博士',
     icon: 'i-lucide-graduation-cap',
   },
   {
@@ -43,9 +43,9 @@ export const team: TeamMember[] = [
     icon: 'i-lucide-code',
   },
   {
-    name: '阳明',
-    title: '技术架构师',
-    description: '前小米云原生架构师',
+    name: '谭国韬',
+    title: '首席知识官',
+    description: '利安达咨询CEO',
     icon: 'i-lucide-cpu',
   },
 ];
@@ -77,25 +77,48 @@ export const cases: Case[] = [
   {
     id: 'medical-ai',
     title: '金大智能AI医美平台',
-    description:
-      '客户为金大智能创新科技有限公司，专注于汽车、家电、消费电子、医疗及农业设备领域。提供医美领域的私有化部署方案，使用LoRA框架进行监督微调，结合企业领域数据提升模型表现。实现皮肤检测报告生成与专业咨询问答服务。',
-    icon: 'medical',
-    metrics: ['10万+用户', '98%准确率', '50+医美机构'],
-    coverImage: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&auto=format&fit=crop&q=80',
+    description: '为金大智能创新科技提供医美领域的私有化部署方案，使用LoRA框架进行监督微调，结合企业领域数据提升模型表现。',
+    icon: 'stethoscope',
+    coverImage: '/images/cases/case-jinda.avif',
+    showcase: [
+      {
+        image: '/images/cases/medical-res-1.avif',
+        title: '智能诊断系统',
+        description: '基于AI的医美诊断和分析系统'
+      },
+      {
+        image: '/images/cases/medical-res-2.avif',
+        title: '专业医生团队',
+        description: '经验丰富的医美专家提供服务'
+      },
+      {
+        image: '/images/cases/medical-res-3.avif',
+        title: '先进医疗设备',
+        description: '配备顶级医美设备和工具'
+      }
+    ],
+    metrics: [
+      '专注汽车、家电、消费电子等领域',
+      '结合企业领域数据提升模型表现',
+      '实现皮肤检测报告生成与专业咨询问答'
+    ],
     features: [
       {
         title: '核心功能',
         items: [
-          '智能皮肤检测',
-          '个性化医美方案',
-          '专业咨询问答'
+          '医美领域的私有化部署方案',
+          '面向医美机构开发的智能皮肤的多agent系统',
+          '支持私有化部署',
+          '实现皮肤检测报告生成与专业咨询问答服务'
         ]
       }
     ],
     techDetails: [
-      'LoRA微调框架',
-      'AI图像分析',
-      '知识库问答系统'
+      '使用LoRA框架对预训练模型进行监督微调（SFT）',
+      '采用vLLM、DeepSpeed等推理加速框架',
+      '应用FP16/INT8模型量化技术',
+      '基于Docker和Kubernetes进行模型服务的容器化部署',
+      '实施严格的安全策略和权限控制'
     ],
     results: {
       title: '项目成果',
@@ -105,25 +128,48 @@ export const cases: Case[] = [
   {
     id: 'energy-ai',
     title: '百酷新能源AI充电宝',
-    description:
-      '为百酷新能源科技有限公司开发智能充电系统，实现多语言对话和智能充电管理。采用轻量级模型部署方案，优化终端设备性能。',
-    icon: 'energy',
-    metrics: ['200+城市', '50万+设备', '99.9%可用性'],
-    coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80',
+    description: '为深圳市百酷新能源提供智能充电解决方案，实现多语言交互、智能导航等功能。',
+    icon: 'battery-charging',
+    coverImage: '/images/cases/case-energy.avif',
+    showcase: [
+      {
+        image: '/images/cases/energy-res-1.avif',
+        title: '智能充电系统',
+        description: '自动识别设备类型，智能调节充电参数'
+      },
+      {
+        image: '/images/cases/energy-res-2.avif',
+        title: '多语言交互',
+        description: '支持多国语言实时翻译和交互'
+      },
+      {
+        image: '/images/cases/energy-res-3.avif',
+        title: '导航服务',
+        description: '智能规划最优充电站路线'
+      }
+    ],
+    metrics: [
+      '实时多语言翻译功能',
+      '上下文感知对话能力',
+      '智能行程规划服务'
+    ],
     features: [
       {
         title: '核心功能',
         items: [
-          '多语言交互系统',
-          '智能充电管理',
-          '实时监控分析'
+          '多语言实时翻译',
+          '智能路线规划',
+          '充电站导航',
+          '用户行为分析'
         ]
       }
     ],
     techDetails: [
-      '轻量级模型部署',
-      '多语言NLP',
-      '实时数据分析'
+      '基于Transformer的多语言翻译模型',
+      '实时位置服务和路径优化算法',
+      '用户行为数据分析和预测',
+      '云边协同计算架构',
+      '5G网络优化传输'
     ],
     results: {
       title: '项目成果',
@@ -131,27 +177,100 @@ export const cases: Case[] = [
     }
   },
   {
-    id: 'virtual-clothing',
+    id: 'clothes-ai',
     title: 'AI驱动的虚拟试衣体验',
-    description:
-      '为某知名服装品牌开发AI虚拟试衣系统，通过深度学习技术实现精准的服装效果展示和个性化推荐。',
-    icon: 'clothing',
-    metrics: ['1000万+用户', '4.9分好评', '200+品牌'],
-    coverImage: 'https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=1200&auto=format&fit=crop&q=80',
+    description: '提供AI驱动的在线试衣平台，实现实时穿搭效果展示，支持个性化推荐。',
+    icon: 'shirt',
+    coverImage: '/images/cases/case-clothes.avif',
+    showcase: [
+      {
+        image: '/images/cases/clothes-res-1.avif',
+        title: '虚拟试衣',
+        description: '实时生成穿搭效果'
+      },
+      {
+        image: '/images/cases/clothes-res-2.avif',
+        title: '个性推荐',
+        description: '基于用户喜好的智能搭配'
+      },
+      {
+        image: '/images/cases/clothes-res-3.avif',
+        title: '3D展示',
+        description: '多角度展示服装效果'
+      }
+    ],
+    metrics: [
+      '支持用户照片上传',
+      '精准的服饰与用户图像匹配',
+      '生成动态展示视频'
+    ],
     features: [
       {
         title: '核心功能',
         items: [
-          '虚拟试衣体验',
-          '个性化推荐',
-          '智能尺码建议'
+          '实时虚拟试衣',
+          '个性化穿搭推荐',
+          '3D服装展示',
+          '社交分享功能'
         ]
       }
     ],
     techDetails: [
-      '计算机视觉',
-      '深度学习',
-      '推荐算法'
+      '基于GAN的图像生成技术',
+      '3D服装建模和渲染',
+      '人体姿态估计算法',
+      '基于深度学习的风格迁移',
+      '实时渲染优化'
+    ],
+    results: {
+      title: '项目成果',
+      description: '累计服务超1000万用户，合作品牌200+，用户评分4.9分。'
+    }
+  },
+  {
+    id: 'education-ai',
+    title: 'AI宝宝英语单词学习神器',
+    description: '宝宝启蒙英语单词学习神器基于Coze平台配置，旨在为孩子们提供个性化的英语学习体验',
+    icon: 'book-open',
+    coverImage: '/images/cases/case-education.avif',
+    showcase: [
+      {
+        image: '/images/cases/education-res-1.avif',
+        title: '趣味学习',
+        description: '生动有趣的英语学习体验'
+      },
+      {
+        image: '/images/cases/education-res-2.avif',
+        title: '智能互动',
+        description: '个性化的学习进度跟踪'
+      },
+      {
+        image: '/images/cases/education-res-3.avif',
+        title: '成果展示',
+        description: '直观的学习效果反馈'
+      }
+    ],
+    metrics: [
+      '支持用户照片上传',
+      '精准的服饰与用户图像匹配',
+      '生成动态展示视频'
+    ],
+    features: [
+      {
+        title: '核心功能',
+        items: [
+          '输入处理系统',
+          '提示词工程系统',
+          '对话管理引擎',
+          '响应生成系统'
+        ]
+      }
+    ],
+    techDetails: [
+      '数据持久化',
+      '上下文感知的提示词生成',
+      '多层级提示词系统',
+      '动态提示词组合'
     ],
     results: {
       title: '项目成果',

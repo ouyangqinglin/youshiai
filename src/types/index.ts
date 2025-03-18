@@ -22,13 +22,22 @@ export interface Stat {
   label: string;
 }
 
-export type Case = {
+export interface Case {
   id: string;
   title: string;
   description: string;
   icon: string;
-  metrics: string[];
   coverImage: string;
+  client?: {
+    name: string;
+    description: string;
+  };
+  showcase: {
+    image: string;
+    title: string;
+    description: string;
+  }[];
+  metrics: string[];
   features: {
     title: string;
     items: string[];
@@ -38,7 +47,7 @@ export type Case = {
     title: string;
     description: string;
   };
-};
+}
 
 export interface Testimonial {
   quote: string;

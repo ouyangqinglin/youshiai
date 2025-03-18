@@ -1,23 +1,12 @@
 'use client';
 
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import PageLayout from '@/components/layout/PageLayout';
 import Icon from '@/components/ui/Icon';
 import { solutions } from '@/data/solutions';
-
-const solutionImages = {
-  'llm-deployment': 'https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=1200&auto=format&fit=crop&q=80',
-  'enterprise-llm': 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&auto=format&fit=crop&q=80',
-  'lightweight-ai': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80',
-};
-
-const subtitles = {
-  'llm-deployment': 'AI 赋能创新',
-  'enterprise-llm': '智能医美服务平台',
-  'lightweight-ai': '轻量级 AI 应用开发',
-};
 
 export default function SolutionsPage() {
   return (
@@ -79,7 +68,7 @@ export default function SolutionsPage() {
                       >
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                         <Image
-                          src={solutionImages[solution.id as keyof typeof solutionImages]}
+                          src={solution.image}
                           alt={solution.title}
                           fill
                           className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -89,7 +78,7 @@ export default function SolutionsPage() {
                             {solution.title}
                           </h2>
                           <p className="mt-2 text-lg text-white/90">
-                            {subtitles[solution.id as keyof typeof subtitles]}
+                            {solution.subtitle}
                           </p>
                         </div>
                       </motion.div>
@@ -201,7 +190,7 @@ export default function SolutionsPage() {
                       >
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                         <Image
-                          src={solutionImages[solution.id as keyof typeof solutionImages]}
+                          src={solution.image}
                           alt={solution.title}
                           fill
                           className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -211,7 +200,7 @@ export default function SolutionsPage() {
                             {solution.title}
                           </h2>
                           <p className="mt-2 text-lg text-white/90">
-                            {subtitles[solution.id as keyof typeof subtitles]}
+                            {solution.subtitle}
                           </p>
                         </div>
                       </motion.div>
