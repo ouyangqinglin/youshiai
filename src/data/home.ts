@@ -24,12 +24,7 @@ export const features: Feature[] = [
 ];
 
 export const team: TeamMember[] = [
-  {
-    name: '欧阳清林',
-    title: '创始人兼CEO',
-    description: '资深架构师',
-    icon: 'i-lucide-user-circle',
-  },
+
   {
     name: '薛瑶',
     title: '联合创始人财务总监',
@@ -37,9 +32,15 @@ export const team: TeamMember[] = [
     icon: 'i-lucide-cpu',
   },
   {
+    name: '欧阳清林',
+    title: '创始人兼CEO',
+    description: '全栈工程师',
+    icon: 'i-lucide-user-circle',
+  },
+  {
     name: '欧阳欣',
     title: '首席科学家&CTO',
-    description: '香港大学硕士&金融领域专家',
+    description: '香港大学硕士&金融专家',
     icon: 'i-lucide-graduation-cap',
   },
   {

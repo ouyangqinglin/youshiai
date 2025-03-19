@@ -48,7 +48,7 @@ export const courses: Course[] = [
         ]
       }
     ],
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+    videoUrl: 'https://www.youtube.com/embed/az9tHuOzOfA'
   },
   {
     id: 'ai-dev-tools',
@@ -86,7 +86,7 @@ export const courses: Course[] = [
         ]
       }
     ],
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+    videoUrl: 'https://www.youtube.com/embed/az9tHuOzOfA'
   },
   {
     id: 'fullstack-bootcamp',
@@ -124,7 +124,7 @@ export const courses: Course[] = [
         ]
       }
     ],
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+    videoUrl: 'https://www.youtube.com/embed/az9tHuOzOfA'
   },
   {
     id: 'ai-dev-engineer',
@@ -162,7 +162,7 @@ export const courses: Course[] = [
         ]
       }
     ],
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+    videoUrl: 'https://www.youtube.com/embed/az9tHuOzOfA'
   },
   {
     id: 'ai-architect',
@@ -200,6 +200,6 @@ export const courses: Course[] = [
         ]
       }
     ],
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+    videoUrl: 'https://www.youtube.com/embed/az9tHuOzOfA'
   }
 ];

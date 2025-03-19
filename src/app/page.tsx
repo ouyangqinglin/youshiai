@@ -19,7 +19,7 @@ export default function HomePage() {
             关于欧阳家族
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
-          欧阳家族（欧阳AI）是一家领先的创新型新质生产力企业，致力于在人工智能领域的深度开发与应用。
+          欧阳家族科技（欧阳 AI）是一家领先的创新型新质生产力企业，致力于在人工智能领域的深度开发与应用。
           </p>
           <p className="mt-6 text-lg text-muted-foreground">公司定位为扎根场景的AI原生服务商，专注为C端客户和B端客户提供高性价比、快速交付的一站式大模型解决方案，旨在通过智能技术的赋能，帮助客户实现流程成本优化、效率质量提升和业务价值最大化。</p>
         </div>

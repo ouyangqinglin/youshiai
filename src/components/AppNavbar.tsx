@@ -15,8 +15,8 @@ const navigation = [
     href: '/solutions',
     submenu: [
       { name: '智能AI医美平台', href: '/solutions/medicine' },
-      // { name: '企业级大模型应用定制化开发', href: '/solutions/enterprise-llm' },
-      // { name: '轻量级AI应用快速开发', href: '/solutions/lightweight-ai' },
+      { name: '智能企业级大模型', href: '/solutions/enterprise-llm' },
+      { name: '智能轻量级AI应用', href: '/solutions/lightweight-ai' },
     ],
   },
   { name: '客户案例', href: '/cases' },
@@ -85,16 +85,16 @@ export default function AppNavbar() {
                   </Link>
                 )}
                 {item.submenu && (
-                  <div className={`absolute left-0 top-full pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 ease-out`}>
-                    <div className="bg-card/80 backdrop-blur-md rounded-xl shadow-lg ring-1 ring-border/5 py-2 w-[280px] transform origin-top scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out">
+                  <div className={`absolute left-1/2 top-full pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 ease-out -translate-x-1/2`}>
+                    <div className="bg-card/80 backdrop-blur-md rounded-xl shadow-lg ring-1 ring-border/5 py-2 min-w-[200px] w-max transform origin-top scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out">
                       {item.submenu.map((subItem) => (
                         <Link
                           key={subItem.href}
                           href={subItem.href}
-                          className={`block px-4 py-2.5 text-sm transition-all duration-200 ${
+                          className={`block px-6 py-2.5 text-sm whitespace-nowrap transition-all duration-200 ${
                             isActive(subItem.href)
                               ? 'bg-primary/10 text-primary font-medium'
-                              : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground hover:pl-6'
+                              : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground hover:pl-8'
                           }`}
                         >
                           {subItem.name}

@@ -29,7 +29,10 @@ export default function VideoModal({ isOpen, onClose, videoUrl }: VideoModalProp
               src={videoUrl}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="size-full"
+              className="size-full border-0"
+              scrolling="no"
+              frameBorder="0"
+              sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
             />
           </div>
         </Dialog.Panel>

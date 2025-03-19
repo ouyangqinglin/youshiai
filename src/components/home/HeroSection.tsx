@@ -24,7 +24,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
           >
             <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent whitespace-nowrap">
-            欧阳家族科技
+              欧阳家族科技
             </span>
           </motion.span>
         }
@@ -34,7 +34,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            致力成为中国领先的人工智能解决方案服务商 - Strive to become a leading provider of artificial intelligence solutions in China
+            致力成为中国领先的人工智能解决方案服务商<br />Striving to become China's leading AI solution provider.
           </motion.span>
         }
         cta={{
