@@ -29,7 +29,7 @@ export default function AppFooter() {
         <div className="py-8">
           <div className="flex flex-col space-y-6 md:flex-row md:items-center md:justify-between md:space-y-0">
             <div className="flex items-center space-x-2">
-              <span className="text-xl font-bold text-primary">有识AI</span>
+              <span className="text-xl font-bold text-primary">欧阳AI</span>
             </div>
             
             {/* Desktop Navigation */}
@@ -67,7 +67,7 @@ export default function AppFooter() {
 
           <div className="mt-8 border-t border-border pt-8">
             <p className="text-center text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} 深圳市有识科技有限公司. 保留所有权利.
+              &copy; {new Date().getFullYear()} 深圳市欧阳家族科技有限公司. 保留所有权利.
             </p>
           </div>
         </div>

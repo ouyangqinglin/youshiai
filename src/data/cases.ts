@@ -3,13 +3,13 @@ import type { Case } from '@/types';
 export const cases: Case[] = [
   {
     id: 'medical-ai',
-    title: '金大智能AI医美平台',
-    description: '为金大智能创新科技提供医美领域的私有化部署方 案，使用LoRA框架进行监督微调，结合企业领域数据提升模型表现。',
+    title: '智能AI医美平台',
+    description: '为智能创新科技提供医美领域的私有化部署方 案，使用LoRA框架进行监督微调，结合企业领域数据提升模型表现。',
     icon: 'stethoscope',
     coverImage: '/images/cases/case-jinda.avif',
     client: {
-      name: '金大智能创新科技有限公司',
-      description: '成立于2016年，拥有超过50000㎡厂房和600余名员工，具备98台注塑机，是国家级高新技术企业，已通过ISO9001、ISO14001、ISO13485和IATF16949认证。公司年产模具1200套，设置10条成品件生产线，70%业务来自海外市场。金大专注于汽车、家电、消费电子、医疗及农业设备领域。'
+      name: '智能创新科技有限公司',
+      description: '成立于2016年，拥有超过50000㎡厂房和600余名员工，具备98台注塑机，是国家级高新技术企业，已通过ISO9001、ISO14001、ISO13485和IATF16949认证。公司年产模具1200套，设置10条成品件生产线，70%业务来自海外市场。专注于汽车、家电、消费电子、医疗及农业设备领域。'
     },
     showcase: [
       {

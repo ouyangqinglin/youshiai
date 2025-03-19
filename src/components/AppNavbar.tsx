@@ -14,7 +14,7 @@ const navigation = [
     name: '解决方案',
     href: '/solutions',
     submenu: [
-      { name: '金大智能AI医美平台', href: '/solutions/medicine' },
+      { name: '智能AI医美平台', href: '/solutions/medicine' },
       // { name: '企业级大模型应用定制化开发', href: '/solutions/enterprise-llm' },
       // { name: '轻量级AI应用快速开发', href: '/solutions/lightweight-ai' },
     ],
@@ -45,7 +45,7 @@ export default function AppNavbar() {
       <Container>
         <nav className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-xl font-bold text-foreground">
-            <span className="text-primary">有识 AI</span>
+            <span className="text-primary">欧阳 AI</span>
           </Link>
 
           {/* Desktop Navigation */}

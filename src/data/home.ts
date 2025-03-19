@@ -25,29 +25,35 @@ export const features: Feature[] = [
 
 export const team: TeamMember[] = [
   {
-    name: '何文强',
+    name: '欧阳清林',
     title: '创始人兼CEO',
-    description: '前腾讯架构师',
+    description: '资深架构师',
     icon: 'i-lucide-user-circle',
   },
   {
-    name: '强锋',
+    name: '薛瑶',
+    title: '联合创始人财务总监',
+    description: '资深财务专家',
+    icon: 'i-lucide-cpu',
+  },
+  {
+    name: '欧阳欣',
     title: '首席科学家&CTO',
-    description: '爱丁堡大学优化与数学博士',
+    description: '香港大学硕士&金融领域专家',
     icon: 'i-lucide-graduation-cap',
   },
   {
-    name: '巫烨',
-    title: '联合创始人',
-    description: '资深架构师',
+    name: '阳翼',
+    title: '产品专家',
+    description: '资深资金产品专家',
     icon: 'i-lucide-code',
   },
   {
-    name: '谭国韬',
+    name: '邱升新',
     title: '首席知识官',
-    description: '利安达咨询CEO',
+    description: '金融行业顾问专家',
     icon: 'i-lucide-cpu',
-  },
+  }
 ];
 
 export const advantages: Advantage[] = [
@@ -76,8 +82,8 @@ export const advantages: Advantage[] = [
 export const cases: Case[] = [
   {
     id: 'medical-ai',
-    title: '金大智能AI医美平台',
-    description: '为金大智能创新科技提供医美领域的私有化部署方案，使用LoRA框架进行监督微调，结合企业领域数据提升模型表现。',
+    title: '智能AI医美平台',
+    description: '为智能创新科技提供医美领域的私有化部署方案，使用LoRA框架进行监督微调，结合企业领域数据提升模型表现。',
     icon: 'stethoscope',
     coverImage: '/images/cases/case-jinda.avif',
     showcase: [
@@ -282,7 +288,7 @@ export const cases: Case[] = [
 export const testimonials: Testimonial[] = [
   {
     quote:
-      '有识AI帮助我们将客服响应时间缩短了80%，客户满意度显著提升。通过智能化升级，我们的运营效率得到了质的飞跃。',
+      '欧阳AI帮助我们将客服响应时间缩短了80%，客户满意度显著提升。通过智能化升级，我们的运营效率得到了质的飞跃。',
     user: {
       avatar: '/avatars/user1.jpg',
       name: '张经理',
@@ -291,7 +297,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      '通过有识AI的智能风控解决方案，我们的风险识别准确率提升至95%，极大地提高了业务处理效率。',
+      '通过欧阳AI的智能风控解决方案，我们的风险识别准确率提升至95%，极大地提高了业务处理效率。',
     user: {
       avatar: '/avatars/user2.jpg',
       name: '李总监',

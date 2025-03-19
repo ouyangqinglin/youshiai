@@ -32,7 +32,7 @@ export interface Solution {
 export const solutions: Solution[] = [
   {
     id: 'medicine',
-    title: '金大智能AI医美平台',
+    title: '智能AI医美平台',
     subtitle: '智能医美解决方案，提升医美服务效率与精准度',
     description: '支持十亿到万亿参数模型部署，适配信创/混合云环境。依托华为云自研AI算力，使用成本降低20%~40%。',
     icon: 'brain',

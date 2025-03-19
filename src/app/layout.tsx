@@ -20,10 +20,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: '深圳市有识之士科技有限公司',
+  title: '欧阳家族有限公司',
   description: 'AI解决方案提供商，专注于AI技术在教育、金融、制造等行业的应用',
   keywords: ['AI教育', '智能教育', '教育科技', '人工智能', '在线教育'],
-  authors: [{ name: '有识AI' }],
+  authors: [{ name: '欧阳AI' }],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

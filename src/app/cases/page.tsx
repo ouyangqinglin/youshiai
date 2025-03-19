@@ -9,7 +9,7 @@ import Icon from '@/components/ui/Icon';
 const cases = [
   {
     id: 'medical-ai',
-    title: '金大智能AI医美平台',
+    title: '智能AI医美平台',
     subtitle: '医美科技',
     description: '成立于2016年，拥有超过50000㎡厂房和600余名员工，具备98台注塑机，是国家级高新技术企业。已通过ISO9001、ISO14001、ISO13485和IATF16949认证。公司年产模具1200套，设置10条成品件生产线，70%业务...',
     image: '/images/cases/case-jinda.avif',

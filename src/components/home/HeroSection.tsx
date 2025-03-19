@@ -24,7 +24,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
           >
             <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent whitespace-nowrap">
-            有识之士科技
+            欧阳家族科技
             </span>
           </motion.span>
         }
