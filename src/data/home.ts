@@ -44,7 +44,7 @@ export const team: TeamMember[] = [
     icon: 'i-lucide-graduation-cap',
   },
   {
-    name: '阳翼',
+    name: '欧阳翼',
     title: '产品专家',
     description: '资深资金产品专家',
     icon: 'i-lucide-code',
