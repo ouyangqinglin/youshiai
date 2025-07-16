@@ -25,12 +25,12 @@ export const features: Feature[] = [
 
 export const team: TeamMember[] = [
 
-  {
-    name: '薛瑶',
-    title: '联合创始人财务总监',
-    description: '资深财务专家',
-    icon: 'i-lucide-cpu',
-  },
+  // {
+  //   name: '薛瑶',
+  //   title: '联合创始人财务总监',
+  //   description: '资深财务专家',
+  //   icon: 'i-lucide-cpu',
+  // },
   {
     name: '欧阳清林',
     title: '创始人兼CEO',
